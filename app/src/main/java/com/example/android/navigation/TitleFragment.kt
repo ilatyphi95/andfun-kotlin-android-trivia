@@ -40,18 +40,19 @@ class TitleFragment : Fragment() {
                 // From TitleFragmentDirections
                 // We will have to switch this to using an anonymous function, since
                 // createNavigateOnClickListener cannot take NavDirections
-                Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+                Navigation.createNavigateOnClickListener(
+                        TitleFragmentDirections.actionTitleFragmentToGameFragment()))
         setHasOptionsMenu(true)
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu, menu)
+        inflater.inflate(R.menu.overflow_menu, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item,
                 view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }
