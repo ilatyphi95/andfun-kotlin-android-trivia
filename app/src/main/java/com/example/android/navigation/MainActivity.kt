@@ -36,6 +36,13 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         // TODO (01) call navController.addOnDestinationChangedListener with an anonymous function
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            if (destination.id == controller.graph.startDestination) {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            } else {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            }
+        }
         // TODO (02) in the anonymous function unlock/lock the drawer layout if the id matches the start destination
         NavigationUI.setupWithNavController(binding.navView, navController)
     }
