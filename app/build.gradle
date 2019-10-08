@@ -55,6 +55,7 @@ dependencies {
     // Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
 
+    //TODO 00: neeeded for navigation drawer
     // Core
     implementation "androidx.core:core:$version_core"
 
